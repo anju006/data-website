@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Billing Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylebill.css">
+</head>
+<body>
+   <script>
+        function input(){
+           const value1 = document.getElementById("value1").value;
+           
+           if(value1>0 && value1<=1000){
+
+                const result = parseFloat(value1)/10;
+                document.getElementById("display").innerHTML="The data cost is: Rs. "+ result;
+           }
+           else if(value1>=1001 && value1<=2000)
+           {
+
+               const result = (parseFloat(value1)/10)+90;
+               document.getElementById("display").innerHTML="The data cost is: Rs. "+ result;
+
+           }
+           else if(value1>=2001 && value1<=3000)
+           {
+
+               const result = (parseFloat(value1)/5)+150;
+               document.getElementById("display").innerHTML="The data cost is: Rs. "+ result;
+
+           }
+           else if(value1>=3001 && value1<=4000)
+           {
+
+               const result = (parseFloat(value1)/7)+250;
+               document.getElementById("display").innerHTML="The Data cost is: Rs. "+ result;
+           }
+           else if(value1>=4001 && value1<=5000)
+           {
+               if(value1>=4001 && value1<=4300)
+               {
+                   const result = parseFloat(value1)+300;
+                   document.getElementById("display").innerHTML="The Data cost is: Rs. "+ result;
+               }
+               else{
+                   const result = 300+(parseFloat(value1)/10);
+                   document.getElementById("display").innerHTML="The Data cost is: Rs. "+ result;
+               }
+               
+           }
+           else{
+               document.getElementById("display").innerHTML="Please, Enter correct data.";
+           }
+
+        }
+    </script>
+<div class="container-fluid">
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Mobile Billing System</h1>           
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0-1 GB: </td>
+                            <td>1rupee/10mb</td>
+                        </tr>
+                        <tr>
+                            <td>1-2 GB: </td>
+                            <td>90 + 1rupee/10mb</td>
+                        </tr>
+                        <tr>
+                            <td>2-3 GB: </td>
+                            <td>150 + 1rupee/5mb</td>
+                        </tr>
+                        <tr>
+                            <td>3-4 GB: </td>
+                            <td> 250 + 1rupee/7mb</td>
+                        </tr>
+                        <tr>
+                            <td>4-5 GB: </td>
+                            <td style="padding-left: 15px;"> 300(till 4.3GB) + 1rupee/10mb(after 4.3GB)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+              
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="form">
+                    <form action="#">
+                        <h4>Enter Data Used in MB :</h4>
+                        <input type="text" id="value1" placeholder="Enter Data" required><br/>
+                        <button type="submit" class="btn btn-success" onclick="input()" value="Submit">Submit</button>
+                    </form>
+                    <div class="result-display">
+                        <p id="display"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
